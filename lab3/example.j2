@@ -1,0 +1,9 @@
+Currently, CVP has the following EOS images loaded:
+{% for image in kwargs['eos_images'] -%}
+- {{ image['name'] }}
+{% endfor %}
+
+There are currently {{ kwargs['containers'] | length }} provisioning containers in the system:
+{% for container in kwargs['containers'] -%}
+- {{ container['Name'] }}
+{% endfor -%}

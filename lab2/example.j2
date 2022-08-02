@@ -1,0 +1,12 @@
+{{ devices | length }} devices contacted in total
+-------------------------------------------------
+
+{% for device, details in devices.items() %}
+
+{{ device }} ( serial number {{ details['serial'] }} )
+Total of {{ details['total_arp'] }} entries found in ARP table
+{%   for arp in details['arp_table'] -%}
+- {{ arp['address'] }} (MAC {{ arp['hwAddress'] }}) learned on {{ arp['interface'] }}
+{%   endfor -%}
+
+{% endfor %}
